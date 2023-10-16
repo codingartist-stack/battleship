@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import './style.css';
-import { ship } from './ships';
+import { ship } from './ships.js';
 
 const carrier = ship('Carrier', 5);
 
