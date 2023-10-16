@@ -1,12 +1,7 @@
 import _ from 'lodash';
 import './style.css';
-function component() {
-  const element = document.createElement('div');
+import { ship } from './ships';
 
-  element.innerHTML = _.join(['Hello', 'Webpack'], ' ');
-  element.classList.add('hello');
+const carrier = ship('Carrier', 5);
 
-  return element;
-}
-
-document.body.appendChild(component());
+console.log(carrier);
