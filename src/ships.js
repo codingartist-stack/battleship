@@ -5,10 +5,27 @@
 // Destroyer = 2
 
 export function ship(name, size) {
-  return {
+  let hits = 0;
+  let sunk = false;
+  //hit function that increases
+  const hit = () => {
+    hits += 1;
+  };
+
+  const isSunk = () => {
+    sunk = true;
+  };
+
+  const theShip = {
     name,
     size,
-    hits: 0,
-    sunk: false,
+    hits,
+    sunk,
+  };
+
+  return {
+    theShip,
+    hit,
+    isSunk,
   };
 }
