@@ -10,6 +10,7 @@ export function ship(name, size) {
   //hit function that increases
   const hit = () => {
     hits += 1;
+    return hits;
   };
 
   const isSunk = () => {
