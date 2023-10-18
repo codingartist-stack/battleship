@@ -22,4 +22,6 @@ carrier.hit();
 carrier.hit();
 carrier.hit();
 
+carrier.hit();
+
 console.log(carrier.theShip);
