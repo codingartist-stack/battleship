@@ -12,9 +12,18 @@ export function ship(name, size) {
     sunk: false,
   };
 
+  const hit = () => {
+    if (theShip.hits < theShip.size) {
+      theShip.hits += 1;
+    }
+    if (theShip.hits == theShip.size) {
+      theShip.sunk = true;
+      console.log(`the ${theShip.name} is sunk`);
+    }
+  };
+
   return {
     theShip,
-    hit: () => (theShip.hits += 1),
-    sink: () => (theShip.sunk = true),
+    hit,
   };
 }
