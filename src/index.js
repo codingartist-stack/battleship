@@ -11,7 +11,7 @@ import { Ship } from './ships.js';
 
 const carrier = Ship('Carrier', 5);
 
-console.log(carrier.shipData);
+console.log(carrier.shipInfo);
 carrier.hit();
 carrier.hit();
 carrier.hit();
@@ -21,4 +21,4 @@ carrier.hit();
 carrier.hit();
 
 console.log(carrier.isSunk());
-console.log(carrier.shipData);
+console.log(carrier.shipInfo);
