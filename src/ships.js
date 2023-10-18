@@ -8,25 +8,25 @@ export function ship(name, size) {
   let hits = 0;
   let sunk = false;
   //hit function that increases
+
   const hit = () => {
     hits += 1;
-    return hits;
-  };
-
-  const isSunk = () => {
-    sunk = true;
   };
 
   const theShip = {
     name,
     size,
-    hits,
-    sunk,
+    hits: 0,
+    sunk: false,
   };
 
   return {
     theShip,
     hit,
-    isSunk,
   };
 }
+
+const carrier = ship('Carrier', 5);
+carrier.hit();
+
+console.log(carrier.theShip);
