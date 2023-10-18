@@ -5,14 +5,6 @@
 // Destroyer = 2
 
 export function ship(name, size) {
-  let hits = 0;
-  let sunk = false;
-  //hit function that increases
-
-  const hit = () => {
-    hits += 1;
-  };
-
   const theShip = {
     name,
     size,
@@ -22,11 +14,7 @@ export function ship(name, size) {
 
   return {
     theShip,
-    hit,
+    hit: () => (theShip.hits += 1),
+    sink: () => (theShip.sunk = true),
   };
 }
-
-const carrier = ship('Carrier', 5);
-carrier.hit();
-
-console.log(carrier.theShip);
