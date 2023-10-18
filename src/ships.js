@@ -4,8 +4,8 @@
 // Submarine = 3
 // Destroyer = 2
 
-export function ship(name, size) {
-  const theShip = {
+export function Ship(name, size) {
+  const shipData = {
     name,
     size,
     hits: 0,
@@ -13,17 +13,22 @@ export function ship(name, size) {
   };
 
   const hit = () => {
-    if (theShip.hits < theShip.size) {
-      theShip.hits += 1;
+    if (shipData.hits < shipData.size) {
+      shipData.hits += 1;
     }
-    if (theShip.hits == theShip.size) {
-      theShip.sunk = true;
-      console.log(`the ${theShip.name} is sunk`);
+    if (shipData.hits == shipData.size) {
+      shipData.sunk = true;
+      console.log(`the ${shipData.name} is sunk`);
     }
   };
 
+  const isSunk = () => {
+    return shipData.sunk;
+  };
+
   return {
-    theShip,
+    shipData,
     hit,
+    isSunk,
   };
 }

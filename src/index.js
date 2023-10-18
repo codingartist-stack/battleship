@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import './style.css';
-import { ship } from './ships.js';
+import { Ship } from './ships.js';
 
 //SHIPS
 // Carrier = 5
@@ -9,13 +9,9 @@ import { ship } from './ships.js';
 // Submarine = 3
 // Destroyer = 2
 
-const carrier = ship('Carrier', 5);
-const battleship = ship('Battleship', 4);
-const cruiser = ship('Cruiser', 3);
-const submarine = ship('Submarine', 3);
-const destroyer = ship('Destroyer', 2);
+const carrier = Ship('Carrier', 5);
 
-console.log(carrier.theShip);
+console.log(carrier.shipData);
 carrier.hit();
 carrier.hit();
 carrier.hit();
@@ -24,4 +20,5 @@ carrier.hit();
 
 carrier.hit();
 
-console.log(carrier.theShip);
+console.log(carrier.isSunk());
+console.log(carrier.shipData);
