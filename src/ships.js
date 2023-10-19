@@ -25,3 +25,5 @@ export function Ship(size) {
     isSunk,
   };
 }
+
+module.exports = Ship;
