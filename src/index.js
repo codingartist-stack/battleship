@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import './style.css';
-import { Ship } from './ships.js';
+import Ship from './ships';
 
 //SHIPS
 // Carrier = 5
@@ -10,9 +10,3 @@ import { Ship } from './ships.js';
 // Destroyer = 2
 
 const carrier = Ship(5);
-
-carrier.hit();
-carrier.hit();
-carrier.hit();
-carrier.hit();
-carrier.hit();

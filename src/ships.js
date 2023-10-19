@@ -4,7 +4,7 @@
 // Submarine = 3
 // Destroyer = 2
 
-export function Ship(size) {
+function Ship(size) {
   let hits = 0;
   let sunk = false;
 
