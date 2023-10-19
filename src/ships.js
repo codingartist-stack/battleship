@@ -4,13 +4,13 @@
 // Submarine = 3
 // Destroyer = 2
 
-function Ship(size) {
+function Ship(length) {
   let hits = 0;
   let sunk = false;
 
   const hit = () => {
     hits++;
-    if (hits >= size) {
+    if (hits >= length) {
       sunk = true;
       console.log(`ship is sunk`);
     }
