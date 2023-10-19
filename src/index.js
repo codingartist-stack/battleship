@@ -9,16 +9,10 @@ import { Ship } from './ships.js';
 // Submarine = 3
 // Destroyer = 2
 
-const carrier = Ship('Carrier', 5);
-
-console.log(carrier.shipInfo);
-carrier.hit();
-carrier.hit();
-carrier.hit();
-carrier.hit();
-carrier.hit();
+const carrier = Ship(5);
 
 carrier.hit();
-
-console.log(carrier.isSunk());
-console.log(carrier.shipInfo);
+carrier.hit();
+carrier.hit();
+carrier.hit();
+carrier.hit();

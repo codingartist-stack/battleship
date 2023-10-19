@@ -6,19 +6,18 @@
 
 export function Ship(size) {
   let hits = 0;
+  let sunk = false;
 
   const hit = () => {
-    if (hits < size) {
-      hits++;
-    }
-    if (shipInfo.hits == shipInfo.size) {
-      shipInfo.sunk = true;
-      console.log(`the ${shipInfo.name} is sunk`);
+    hits++;
+    if (hits >= size) {
+      sunk = true;
+      console.log(`ship is sunk`);
     }
   };
 
   const isSunk = () => {
-    return shipInfo.sunk;
+    return sunk;
   };
 
   return {
