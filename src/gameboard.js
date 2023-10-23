@@ -4,9 +4,9 @@ function Gameboard(size) {
   const initialize = () => {
     for (let i = 0; i < size; i++) {
       board[i] = [];
-      //   for (let j = 0; j < array.length; j++) {
-      //     board[i][j] = ' ';
-      //   }
+      for (let j = 0; j < size; j++) {
+        board[i][j] = [];
+      }
     }
   };
 
