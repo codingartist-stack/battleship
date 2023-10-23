@@ -2,5 +2,15 @@
 const Gameboard = require('./src/gameboard');
 
 test('create board', () => {
-  expect(Gameboard(1)).toContain();
+  expect(Gameboard(1)).toEqual(expect.arrayContaining([]));
+});
+
+test('create board', () => {
+  expect(Gameboard(3)).toEqual(expect.arrayContaining([], [], []));
+});
+
+test('create board', () => {
+  expect(Gameboard(10)).toEqual(
+    expect.arrayContaining([], [], [], [], [], [], [], [], [], [])
+  );
 });
