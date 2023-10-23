@@ -2,11 +2,11 @@
 const Gameboard = require('./src/gameboard');
 
 test('create board', () => {
-  expect(Gameboard(1)).toEqual(expect.arrayContaining([[[]]]));
+  expect(Gameboard(1).board).toEqual(expect.arrayContaining([[[]]]));
 });
 
 test('create board', () => {
-  expect(Gameboard(2)).toEqual(
+  expect(Gameboard(2).board).toEqual(
     expect.arrayContaining([
       [[], []],
       [[], []],
@@ -15,12 +15,30 @@ test('create board', () => {
 });
 
 test('create board', () => {
-  expect(Gameboard(10)).toEqual(
+  expect(Gameboard(10).board).toEqual(
     expect.arrayContaining([
       [[], [], [], [], [], [], [], [], [], []],
       [[], [], [], [], [], [], [], [], [], []],
       [[], [], [], [], [], [], [], [], [], []],
       [[], [], [], [], [], [], [], [], [], []],
+      [[], [], [], [], [], [], [], [], [], []],
+      [[], [], [], [], [], [], [], [], [], []],
+      [[], [], [], [], [], [], [], [], [], []],
+      [[], [], [], [], [], [], [], [], [], []],
+      [[], [], [], [], [], [], [], [], [], []],
+      [[], [], [], [], [], [], [], [], [], []],
+    ])
+  );
+});
+
+test('hit target', () => {
+  let testBoard = Gameboard(10);
+  expect(testBoard.receiveAttack(3, 5)).toEqual(
+    expect.arrayContaining([
+      [[], [], [], [], [], [], [], [], [], []],
+      [[], [], [], [], [], [], [], [], [], []],
+      [[], [], [], [], [], [], [], [], [], []],
+      [[], [], [], [], [], ['X'], [], [], [], []],
       [[], [], [], [], [], [], [], [], [], []],
       [[], [], [], [], [], [], [], [], [], []],
       [[], [], [], [], [], [], [], [], [], []],
