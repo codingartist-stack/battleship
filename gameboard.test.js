@@ -1,9 +1,8 @@
-// create a 10 by 10 board
 const GameBoard = require('./src/gameboard');
 
 test('create board', () => {
   let testBoard = GameBoard();
-  expect(testBoard.displayBoard).toEqual(
+  expect(testBoard.displayBoard()).toEqual(
     expect.arrayContaining([
       [[], [], [], [], [], [], [], [], [], []],
       [[], [], [], [], [], [], [], [], [], []],
@@ -37,6 +36,6 @@ test('hit target', () => {
   );
 });
 
-let ship = new Ship(2);
-let ships = [ship];
-[[HIT, HIT][(MISS, null)]];
+// let ship = new Ship(2);
+// let ships = [ship];
+// [[HIT, HIT][(MISS, null)]];
