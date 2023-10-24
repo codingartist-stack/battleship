@@ -1,4 +1,4 @@
-import Ship from './ships';
+// import Ship from './ships';
 
 //usually 10 x 10
 // Carrier = 5
@@ -21,13 +21,13 @@ function GameBoard() {
     [[], [], [], [], [], [], [], [], [], []],
   ];
 
-  let carrier = Ship(5);
-  let battleship = Ship(4);
-  let cruiser = Ship(3);
-  let submarine = Ship(3);
-  let destroyer = Ship(2);
+  // let carrier = Ship(5);
+  // let battleship = Ship(4);
+  // let cruiser = Ship(3);
+  // let submarine = Ship(3);
+  // let destroyer = Ship(2);
 
-  let ships = [carrier, battleship, cruiser, submarine, destroyer];
+  // let ships = [carrier, battleship, cruiser, submarine, destroyer];
 
   const displayBoard = () => {
     return board;
