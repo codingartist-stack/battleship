@@ -7,23 +7,29 @@ import Ship from './ships';
 // Submarine = 3
 // Destroyer = 2
 
-function Gameboard(size) {
-  let board = [];
-  const initialize = () => {
-    for (let i = 0; i < size; i++) {
-      board[i] = [];
-      for (let j = 0; j < size; j++) {
-        board[i][j] = [];
-      }
-    }
-  };
+function GameBoard() {
+  let board = [
+    [[], [], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], [], []],
+  ];
 
-  initialize();
+  let carrier = Ship(5);
+  let battleship = Ship(4);
+  let cruiser = Ship(3);
+  let submarine = Ship(3);
+  let destroyer = Ship(2);
 
-  const placeShip = (i, j, shipLength) => {
-    //I will only have to incerment on number.
-    Ship(shipLength);
+  let ships = [carrier, battleship, cruiser, submarine, destroyer];
 
+  const displayBoard = () => {
     return board;
   };
 
@@ -40,10 +46,9 @@ function Gameboard(size) {
   };
 
   return {
-    board,
-    placeShip,
+    displayBoard,
     receiveAttack,
   };
 }
 
-module.exports = Gameboard;
+module.exports = GameBoard;

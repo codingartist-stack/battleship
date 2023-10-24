@@ -1,21 +1,9 @@
 // create a 10 by 10 board
-const Gameboard = require('./src/gameboard');
+const GameBoard = require('./src/gameboard');
 
 test('create board', () => {
-  expect(Gameboard(1).board).toEqual(expect.arrayContaining([[[]]]));
-});
-
-test('create board', () => {
-  expect(Gameboard(2).board).toEqual(
-    expect.arrayContaining([
-      [[], []],
-      [[], []],
-    ])
-  );
-});
-
-test('create board', () => {
-  expect(Gameboard(10).board).toEqual(
+  let testBoard = GameBoard();
+  expect(testBoard.displayBoard).toEqual(
     expect.arrayContaining([
       [[], [], [], [], [], [], [], [], [], []],
       [[], [], [], [], [], [], [], [], [], []],
@@ -32,7 +20,7 @@ test('create board', () => {
 });
 
 test('hit target', () => {
-  let testBoard = Gameboard(10);
+  let testBoard = GameBoard();
   expect(testBoard.receiveAttack(3, 5)).toEqual(
     expect.arrayContaining([
       [[], [], [], [], [], [], [], [], [], []],
@@ -49,20 +37,6 @@ test('hit target', () => {
   );
 });
 
-test('hit target', () => {
-  let testBoard = Gameboard(10);
-  expect(testBoard.placeShip(0, 0)).toEqual(
-    expect.arrayContaining([
-      [['S'], ['S'], [], [], [], [], [], [], [], []],
-      [[], [], [], [], [], [], [], [], [], []],
-      [[], [], [], [], [], [], [], [], [], []],
-      [[], [], [], [], [], [], [], [], [], []],
-      [[], [], [], [], [], [], [], [], [], []],
-      [[], [], [], [], [], [], [], [], [], []],
-      [[], [], [], [], [], [], [], [], [], []],
-      [[], [], [], [], [], [], [], [], [], []],
-      [[], [], [], [], [], [], [], [], [], []],
-      [[], [], [], [], [], [], [], [], [], []],
-    ])
-  );
-});
+let ship = new Ship(2);
+let ships = [ship];
+[[HIT, HIT][(MISS, null)]];
