@@ -1,15 +1,15 @@
 const Ship = require('./ships');
 
-//usually 10 x 10
-// Carrier = 5
-// Battleship = 4
-// Cruiser = 3
-// Submarine = 3
-// Destroyer = 2
+let carrier = Ship(5);
+let battleship = Ship(4);
+let cruiser = Ship(3);
+let submarine = Ship(3);
+let destroyer = Ship(2);
+let ships = [carrier, battleship, cruiser, submarine, destroyer];
 
 function GameBoard() {
   let board = [
-    [[], [], [], [], [], [], [], [], [], []],
+    [[destroyer], [destroyer], [], [], [], [], [], [], [], []],
     [[], [], [], [], [], [], [], [], [], []],
     [[], [], [], [], [], [], [], [], [], []],
     [[], [], [], [], [], [], [], [], [], []],
@@ -21,13 +21,6 @@ function GameBoard() {
     [[], [], [], [], [], [], [], [], [], []],
   ];
 
-  let carrier = Ship(5);
-  let battleship = Ship(4);
-  let cruiser = Ship(3);
-  let submarine = Ship(3);
-  let destroyer = Ship(2);
-  let ships = [carrier, battleship, cruiser, submarine, destroyer];
-
   const displayBoard = () => {
     return board;
   };
@@ -36,12 +29,12 @@ function GameBoard() {
     let hit = 'X';
     let miss = 'O';
 
-    if (board[i][j] == 'S') {
-      board[i][j].push(hit);
-    } else {
+    if (board[i][j] == []) {
       board[i][j].push(miss);
+    } else {
+      board[i][j];
+      board[i][j].push(hit);
     }
-    return board;
   };
 
   return {
