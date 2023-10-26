@@ -47,7 +47,7 @@ test('hit ship', () => {
 
   expect(testBoard.displayBoard()).toEqual(
     expect.arrayContaining([
-      [['X'], [destroyer], [], [], [], [], [], [], [], []],
+      [[destroyer, 'X'], [destroyer], [], [], [], [], [], [], [], []],
       [[], [], [], [], [], [], [], [], [], []],
       [[], [], [], [], [], [], [], [], [], []],
       [[], [], [], [], [], [], [], [], [], []],
