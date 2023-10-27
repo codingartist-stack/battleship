@@ -392,6 +392,21 @@ test('sink all ships', () => {
   testAllShips.receiveAttack(1, 1);
   testAllShips.receiveAttack(1, 2);
   testAllShips.receiveAttack(1, 3);
+
+  testAllShips.receiveAttack(2, 0);
+  testAllShips.receiveAttack(2, 1);
+  testAllShips.receiveAttack(2, 2);
+
+  testAllShips.receiveAttack(3, 0);
+  testAllShips.receiveAttack(3, 1);
+  testAllShips.receiveAttack(3, 2);
+
+  testAllShips.receiveAttack(4, 0);
+  testAllShips.receiveAttack(4, 1);
+  testAllShips.receiveAttack(4, 2);
+  testAllShips.receiveAttack(4, 3);
+  testAllShips.receiveAttack(4, 4);
+
   expect(testAllShips.displayBoard()).toEqual([
     [
       'hit',
@@ -418,9 +433,9 @@ test('sink all ships', () => {
       'water',
     ],
     [
-      'SHIP',
-      'SHIP',
-      'SHIP',
+      'hit',
+      'hit',
+      'hit',
       'water',
       'water',
       'water',
@@ -430,9 +445,9 @@ test('sink all ships', () => {
       'water',
     ],
     [
-      'SHIP',
-      'SHIP',
-      'SHIP',
+      'hit',
+      'hit',
+      'hit',
       'water',
       'water',
       'water',
@@ -442,11 +457,11 @@ test('sink all ships', () => {
       'water',
     ],
     [
-      'SHIP',
-      'SHIP',
-      'SHIP',
-      'SHIP',
-      'SHIP',
+      'hit',
+      'hit',
+      'hit',
+      'hit',
+      'hit',
       'water',
       'water',
       'water',
