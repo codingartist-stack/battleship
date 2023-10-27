@@ -144,6 +144,8 @@ function GameBoard() {
     });
   };
 
+  //place ship horizontal and vertical
+
   const shipsSunk = () => {
     for (let i = 0; i < ships.length; i++) {
       if (ships[i].isSunk() == false) {
