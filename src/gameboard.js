@@ -11,22 +11,27 @@ function GameBoard() {
   let attackedCoordinates = new Set();
 
   let board = [
-    [[], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], []],
-    [[], [], [], [], [], [], [], [], [], []],
+    [destroyer, destroyer, 'water', 'water', 'water', 'water', 'water', 'water', 'water', 'water'],
+    [battleship, battleship, battleship, battleship, 'water', 'water', 'water', 'water', 'water', 'water'],
+    [cruiser, cruiser, cruiser, 'water', 'water', 'water', 'water', 'water', 'water', 'water'],
+    [submarine, submarine, submarine, 'water', 'water', 'water', 'water', 'water', 'water', 'water'],
+    [carrier, carrier, carrier, carrier, carrier, 'water', 'water', 'water', 'water', 'water'],
+    ['water', 'water', 'water', 'water', 'water', 'water', 'water', 'water', 'water', 'water'],
+    ['water', 'water', 'water', 'water', 'water', 'water', 'water', 'water', 'water', 'water'],
+    ['water', 'water', 'water', 'water', 'water', 'water', 'water', 'water', 'water', 'water'],
+    ['water', 'water', 'water', 'water', 'water', 'water', 'water', 'water', 'water', 'water'],
+    ['water', 'water', 'water', 'water', 'water', 'water', 'water', 'water', 'water', 'water'],
   ];
 
-  board[0][0].push('destroyer');
-
   const displayBoard = () => {
-    return board;
+    return board.map(row => {
+      return row.map(item => {
+        if (item.hasOwnProperty('hit')) {
+          return 'SHIP';
+        }
+        return item;
+      })
+    });
   };
 
   const receiveAttack = (i, j) => {
@@ -34,13 +39,15 @@ function GameBoard() {
       let attackedMessage = `This Coordinate has already been attacked.`;
       console.log(attackedMessage);
       return attackedMessage;
-    } else if (board[i][j] == 'destroyer') {
-      board[i][j].push('X');
-      destroyer.hit();
+    } else if (board[i][j].hasOwnProperty('hit')) {
+      console.log(i, j);
+      console.log(board[i][j]);
+      board[i][j] = 'hit';
+      board[i][j].hit();
       attackedCoordinates.add((i, j));
       return board;
     } else {
-      board[i][j].push('O');
+      board[i][j] = 'miss';
       attackedCoordinates.add((i, j));
       return board;
     }
