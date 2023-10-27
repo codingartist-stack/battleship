@@ -148,19 +148,41 @@ function GameBoard() {
   //foreach?
   //for loop?
 
+  const isWinner = () => {
+    let allSunk = false;
+    let sunkTally = 0;
+    for (let i = 0; i < ships.length; i++) {
+      if (ships[i].isSunk == true) {
+        sunkTally++;
+      }
+    }
+
+    if (sunkTally == ships.length) {
+      allSunk = true;
+      let allSunkMessage = 'All ships are sunk!';
+      console.log(allSunkMessage);
+    }
+
+    return allSunk;
+  };
+
   const receiveAttack = (i, j) => {
-    if (attackedCoordinates.has((i, j))) {
+    if (attackedCoordinates.has(`${i}.${j}`)) {
       let attackedMessage = `This Coordinate has already been attacked.`;
       console.log(attackedMessage);
       return attackedMessage;
     } else if (board[i][j].hasOwnProperty('hit')) {
+      attackedCoordinates.add(`${i}.${j}`);
       board[i][j].hit();
       board[i][j] = 'hit';
-      attackedCoordinates.add((i, j));
+      isWinner();
+
       return board;
     } else {
+      attackedCoordinates.add(`${i}.${j}`);
       board[i][j] = 'miss';
-      attackedCoordinates.add((i, j));
+      isWinner();
+
       return board;
     }
   };
