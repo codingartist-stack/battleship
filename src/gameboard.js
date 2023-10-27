@@ -7,6 +7,7 @@ function GameBoard() {
   let submarine = Ship(3);
   let destroyer = Ship(2);
   let ships = [carrier, battleship, cruiser, submarine, destroyer];
+  let allSunk = false;
 
   let attackedCoordinates = new Set();
 
@@ -144,11 +145,14 @@ function GameBoard() {
     });
   };
 
-  //check if all the ships are sunk
-  //foreach?
-  //for loop?
-
-  const isWinner = () => {};
+  const shipsSunk = () => {
+    for (let i = 0; i < ships.length; i++) {
+      if (ships[i].isSunk() == false) {
+        return false;
+      }
+    }
+    return true;
+  };
 
   const receiveAttack = (i, j) => {
     if (attackedCoordinates.has(`${i}.${j}`)) {
@@ -172,6 +176,7 @@ function GameBoard() {
   return {
     displayBoard,
     receiveAttack,
+    shipsSunk,
   };
 }
 

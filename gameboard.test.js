@@ -530,3 +530,31 @@ test('sink all ships', () => {
     ],
   ]);
 });
+
+test('sink all ships return true', () => {
+  let testAllShips = GameBoard();
+  testAllShips.receiveAttack(0, 0);
+  testAllShips.receiveAttack(0, 1);
+  testAllShips.receiveAttack(0, 2);
+
+  testAllShips.receiveAttack(1, 0);
+  testAllShips.receiveAttack(1, 1);
+  testAllShips.receiveAttack(1, 2);
+  testAllShips.receiveAttack(1, 3);
+
+  testAllShips.receiveAttack(2, 0);
+  testAllShips.receiveAttack(2, 1);
+  testAllShips.receiveAttack(2, 2);
+
+  testAllShips.receiveAttack(3, 0);
+  testAllShips.receiveAttack(3, 1);
+  testAllShips.receiveAttack(3, 2);
+
+  testAllShips.receiveAttack(4, 0);
+  testAllShips.receiveAttack(4, 1);
+  testAllShips.receiveAttack(4, 2);
+  testAllShips.receiveAttack(4, 3);
+  testAllShips.receiveAttack(4, 4);
+
+  expect(testAllShips.shipsSunk()).toEqual(true);
+});
