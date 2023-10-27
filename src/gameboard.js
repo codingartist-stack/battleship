@@ -151,6 +151,7 @@ function GameBoard() {
         return false;
       }
     }
+    console.log('All ships are Sunk!');
     return true;
   };
 
