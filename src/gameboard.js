@@ -7,7 +7,6 @@ function GameBoard() {
   let submarine = Ship(3);
   let destroyer = Ship(2);
   let ships = [carrier, battleship, cruiser, submarine, destroyer];
-  let allSunk = false;
 
   let attackedCoordinates = new Set();
 
@@ -164,6 +163,8 @@ function GameBoard() {
       attackedCoordinates.add(`${i}.${j}`);
       board[i][j].hit();
       board[i][j] = 'hit';
+
+      shipsSunk();
 
       return board;
     } else {
