@@ -10,6 +10,8 @@ function Ship(length) {
 
   const hit = () => {
     hits++;
+    console.log(`hit ship`);
+
     if (hits >= length) {
       sunk = true;
       console.log(`ship is sunk`);

@@ -144,6 +144,10 @@ function GameBoard() {
     });
   };
 
+  //check if all the ships are sunk
+  //foreach?
+  //for loop?
+
   const receiveAttack = (i, j) => {
     if (attackedCoordinates.has((i, j))) {
       let attackedMessage = `This Coordinate has already been attacked.`;
