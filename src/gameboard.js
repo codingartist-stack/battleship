@@ -145,7 +145,7 @@ function GameBoard() {
   };
 
   //place ship horizontal and vertical
-  //placeShip(i, j, length, direction)
+  //const placeShip = (i, j, isVertical = false) => {}
 
   const shipsSunk = () => {
     for (let i = 0; i < ships.length; i++) {

@@ -18,6 +18,15 @@ function Player() {
     }
   };
 
+  const attack = (x, y, board = GameBoard()) => {
+    if (playerAttacks.has(`${x}.${y}`)) {
+      return;
+    } else {
+      playerAttacks.add(`${x}.${y}`);
+      board.receiveAttack(x, y);
+    }
+  };
+
   const randomAttack = (board = GameBoard()) => {
     let coordinateX = Math.floor(Math.random() * 10);
     let coordinateY = Math.floor(Math.random() * 10);
@@ -44,6 +53,7 @@ function Player() {
     switchTurn,
     displayAttacks,
     randomAttack,
+    attack,
   };
 }
 
