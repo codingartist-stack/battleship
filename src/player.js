@@ -6,8 +6,6 @@ function Player(name) {
   let playerAttacks = new Set();
   let playerTurn = true;
 
-  let playerBoard = GameBoard();
-
   const switchTurn = () => {
     if (playerTurn == true) {
       playerTurn = false;
@@ -19,11 +17,27 @@ function Player(name) {
   };
 
   //random attack
+  const randomAttack = (board = GameBoard) => {
+    let coordinateX = Math.floor(Math.random() * max);
+    let coordinateY = Math.floor(Math.random() * max);
 
-  //displayPlayerAttacks
+    if (playerAttacks.length === 100) {
+      return;
+    }
+
+    while (playerAttacks.has(`${coordinateX}.${coordinateY}`)) {
+      coordinateX = Math.floor(Math.random() * max);
+      coordinateY = Math.floor(Math.random() * max);
+    }
+  };
+
+  const displayAttacks = () => {
+    return playerAttacks;
+  };
 
   return {
     switchTurn,
+    displayAttacks,
   };
 }
 
