@@ -18,6 +18,10 @@ function Player(name) {
     }
   };
 
+  //random attack
+
+  //displayPlayerAttacks
+
   return {
     switchTurn,
   };
