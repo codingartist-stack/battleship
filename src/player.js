@@ -1,10 +1,14 @@
-const GameBoard = require('./src/gameboard');
+const GameBoard = require('./gameboard');
 
-function Player(name) {
+function Player() {
   //player takes turn
   //computer player attacks, can't attack same place twice.
   let playerAttacks = new Set();
   let playerTurn = true;
+
+  const whosTurn = () => {
+    return playerTurn;
+  };
 
   const switchTurn = () => {
     if (playerTurn == true) {
@@ -36,6 +40,7 @@ function Player(name) {
   };
 
   return {
+    whosTurn,
     switchTurn,
     displayAttacks,
   };
