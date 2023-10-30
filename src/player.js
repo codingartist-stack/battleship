@@ -18,7 +18,7 @@ function Player() {
     }
   };
 
-  const randomAttack = (board = GameBoard) => {
+  const randomAttack = (board = GameBoard()) => {
     let coordinateX = Math.floor(Math.random() * 10);
     let coordinateY = Math.floor(Math.random() * 10);
 
@@ -32,7 +32,7 @@ function Player() {
     }
 
     playerAttacks.add(`${coordinateX}.${coordinateY}`);
-    // board.receiveAttack(coordinateX, coordinateY);
+    board.receiveAttack(coordinateX, coordinateY);
   };
 
   const displayAttacks = () => {
