@@ -1,8 +1,6 @@
 const GameBoard = require('./gameboard');
 
 function Player() {
-  //player takes turn
-  //computer player attacks, can't attack same place twice.
   let playerAttacks = new Set();
   let playerTurn = true;
 
@@ -20,7 +18,6 @@ function Player() {
     }
   };
 
-  //random attack
   const randomAttack = (board = GameBoard) => {
     let coordinateX = Math.floor(Math.random() * 10);
     let coordinateY = Math.floor(Math.random() * 10);

@@ -17,9 +17,9 @@ test('display player attacks', () => {
   expect(arrayAttacks).toEqual([]);
 });
 
-test('display player attacks', () => {
+test('display player attacks after random attack', () => {
   let testPlayer = Player();
   testPlayer.randomAttack();
   let arrayAttacks = Array.from(testPlayer.displayAttacks());
-  expect(arrayAttacks).toEqual([]);
+  expect(arrayAttacks).toEqual([expect.any(String)]);
 });
