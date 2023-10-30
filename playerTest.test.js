@@ -23,3 +23,11 @@ test('display player attacks after random attack', () => {
   let arrayAttacks = Array.from(testPlayer.displayAttacks());
   expect(arrayAttacks).toEqual([expect.any(String)]);
 });
+
+test('display player attacks after two attacks', () => {
+  let testPlayer = Player();
+  testPlayer.attack(3, 5);
+  testPlayer.attack(6, 2);
+  let arrayAttacks = Array.from(testPlayer.displayAttacks());
+  expect(arrayAttacks).toEqual(['3.5', '6.2']);
+});

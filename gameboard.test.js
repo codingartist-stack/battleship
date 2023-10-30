@@ -558,3 +558,11 @@ test('sink all ships return true', () => {
 
   expect(testAllShips.shipsSunk()).toEqual(true);
 });
+
+test('invalid coordinate', () => {
+  let testBoard = GameBoard();
+
+  expect(testBoard.receiveAttack(11, 6)).toMatch(
+    'This coordinate is invalid. (values should be 0 to 9)'
+  );
+});

@@ -163,6 +163,9 @@ function GameBoard() {
       let attackedMessage = `This Coordinate has already been attacked.`;
       console.log(attackedMessage);
       return attackedMessage;
+    } else if (i < 0 || i > 9 || j < 0 || j > 9) {
+      let invalidCoorMessage = `This coordinate is invalid. (values should be 0 to 9)`;
+      return invalidCoorMessage;
     } else if (board[i][j].hasOwnProperty('hit')) {
       attackedCoordinates.add(`${i}.${j}`);
       board[i][j].hit();
