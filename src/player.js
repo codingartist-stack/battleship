@@ -22,17 +22,20 @@ function Player() {
 
   //random attack
   const randomAttack = (board = GameBoard) => {
-    let coordinateX = Math.floor(Math.random() * max);
-    let coordinateY = Math.floor(Math.random() * max);
+    let coordinateX = Math.floor(Math.random() * 10);
+    let coordinateY = Math.floor(Math.random() * 10);
 
     if (playerAttacks.length === 100) {
       return;
     }
 
     while (playerAttacks.has(`${coordinateX}.${coordinateY}`)) {
-      coordinateX = Math.floor(Math.random() * max);
-      coordinateY = Math.floor(Math.random() * max);
+      coordinateX = Math.floor(Math.random() * 10);
+      coordinateY = Math.floor(Math.random() * 10);
     }
+
+    playerAttacks.add(`${coordinateX}.${coordinateY}`);
+    // board.receiveAttack(coordinateX, coordinateY);
   };
 
   const displayAttacks = () => {
@@ -43,6 +46,7 @@ function Player() {
     whosTurn,
     switchTurn,
     displayAttacks,
+    randomAttack,
   };
 }
 
