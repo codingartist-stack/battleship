@@ -5,7 +5,7 @@ const player = require('./player');
 const ships = require('./ships');
 
 const header = document.createElement('header');
-const mainDiv = document.createElement('main');
+const mainContainer = document.createElement('main');
 
 function Game() {
   //create two players
@@ -15,5 +15,11 @@ function Game() {
   //game loop
 
   //how to have the players board?
-  const renderBoard = () => {};
+  const renderBoard = () => {
+    const board = document.createElement('div');
+    board.classList.add('board');
+    mainContainer.appendChild(board);
+  };
 }
+
+module.exports = Game;
