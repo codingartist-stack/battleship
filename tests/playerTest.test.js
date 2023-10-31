@@ -1,4 +1,4 @@
-const Player = require('./src/player');
+const Player = require('../src/player');
 
 test('players turn', () => {
   let testPlayer = Player();

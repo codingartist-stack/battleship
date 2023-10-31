@@ -1,4 +1,4 @@
-const Ship = require('./src/ships');
+const Ship = require('../src/ships');
 
 test('isSunk false at first', () => {
   let carrier = Ship(5);
