@@ -3,10 +3,10 @@ import './style.css';
 const GameBoard = require('./gameboard');
 const player = require('./player');
 
+// HTML
 const header = document.createElement('header');
 const heading = document.createElement('h1');
 heading.innerText = 'BattleShip';
-
 header.appendChild(heading);
 
 const mainContainer = document.createElement('main');
@@ -53,7 +53,14 @@ function Game() {
       row.forEach((item) => {
         let square = document.createElement('div');
         square.classList.add('boardSquare');
-        square.dataset.coordinate = `${i}.${j}`;
+        square.dataset.coordinateX = `${i}`;
+        square.dataset.coordinateY = `${j}`;
+
+        square.addEventListener('click', (e) => {
+          console.log(
+            `${square.dataset.coordinateX}, ${square.dataset.coordinateY}`
+          );
+        });
 
         if (board == computerBoard) {
           switch (item) {
