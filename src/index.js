@@ -5,9 +5,31 @@ const player = require('./player');
 
 const header = document.createElement('header');
 const mainContainer = document.createElement('main');
+const boardContainer = document.createElement('div');
+boardContainer.classList.add('boardContainer');
+
+const boardBox = document.createElement('div');
+boardBox.classList.add('board');
+const boardTitle = document.createElement('h2');
+boardTitle.innerText = 'your board';
+
+const opponentContainer = document.createElement('div');
+opponentContainer.classList.add('boardContainer');
+const opponentBox = document.createElement('div');
+opponentBox.classList.add('board');
+const opponentTitle = document.createElement('h2');
+opponentTitle.innerText = 'opponent board';
 
 document.body.appendChild(header);
 document.body.appendChild(mainContainer);
+
+boardContainer.appendChild(boardBox);
+boardContainer.appendChild(boardTitle);
+mainContainer.appendChild(boardContainer);
+
+opponentContainer.appendChild(opponentBox);
+opponentContainer.appendChild(opponentTitle);
+mainContainer.appendChild(opponentContainer);
 
 function Game() {
   //create two players
@@ -17,18 +39,16 @@ function Game() {
   let computer = player(true);
   let computerBoard = GameBoard();
 
-  const renderBoard = (board) => {
-    const boardContainer = document.createElement('div');
-    const boardBox = document.createElement('div');
-    boardBox.classList.add('board');
-    const boardTitle = document.createElement('h2');
-
+  const renderBoard = (board, container) => {
     let boardArray = board.displayBoard();
+    let i = 0;
+    let j = 0;
 
     boardArray.forEach((row) => {
       row.forEach((item) => {
         let square = document.createElement('div');
         square.classList.add('boardSquare');
+        square.dataset.coordinate = `${i}.${j}`;
 
         if (board == computerBoard) {
           switch (item) {
@@ -58,23 +78,16 @@ function Game() {
               break;
           }
         }
-
-        boardBox.appendChild(square);
+        j++;
+        container.appendChild(square);
       });
+      i++;
+      j = 0;
     });
-
-    if (board == computerBoard) {
-      boardTitle.innerText = 'opponent board';
-    } else {
-      boardTitle.innerText = 'your board';
-    }
-
-    boardContainer.appendChild(boardBox);
-    boardContainer.appendChild(boardTitle);
-    mainContainer.appendChild(boardContainer);
   };
 
-  renderBoard(playerOneBoard);
+  renderBoard(playerOneBoard, boardBox);
+  renderBoard(computerBoard, opponentBox);
 
   let gameStillGoing = true;
 
