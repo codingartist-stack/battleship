@@ -1,29 +1,17 @@
-const GameBoard = require('./gameboard');
-
-function Player() {
+function Player(isComputer = false) {
   let playerAttacks = new Set();
-  const playerBoard = GameBoard();
 
-  const attack = (x, y, board = playerBoard) => {
-    if (playerAttacks.has(`${x}.${y}`)) {
-      return;
-    } else {
-      playerAttacks.add(`${x}.${y}`);
-      board.receiveAttack(x, y);
-    }
+  const getAttackFromUser = () => {
+    //prompt
+  };
+  // return: {x, y}
+  const getAttack = () => {
+    return isComputer ? randomAttack() : getAttackFromUser();
   };
 
-  const hasLost = () => {
-    return playerBoard.shipsSunk();
-  };
-
-  const randomAttack = (board = GameBoard()) => {
+  const randomAttack = () => {
     let coordinateX = Math.floor(Math.random() * 10);
     let coordinateY = Math.floor(Math.random() * 10);
-
-    if (playerAttacks.length === 100) {
-      return;
-    }
 
     while (playerAttacks.has(`${coordinateX}.${coordinateY}`)) {
       coordinateX = Math.floor(Math.random() * 10);
@@ -31,18 +19,15 @@ function Player() {
     }
 
     playerAttacks.add(`${coordinateX}.${coordinateY}`);
-    board.receiveAttack(coordinateX, coordinateY);
-  };
 
-  const displayAttacks = () => {
-    return playerAttacks;
+    return {
+      x: coordinateX,
+      y: coordinateY,
+    };
   };
 
   return {
-    displayAttacks,
-    randomAttack,
-    attack,
-    hasLost,
+    getAttack,
   };
 }
 
