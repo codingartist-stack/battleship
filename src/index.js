@@ -4,6 +4,11 @@ const GameBoard = require('./gameboard');
 const player = require('./player');
 
 const header = document.createElement('header');
+const heading = document.createElement('h1');
+heading.innerText = 'BattleShip';
+
+header.appendChild(heading);
+
 const mainContainer = document.createElement('main');
 const boardContainer = document.createElement('div');
 boardContainer.classList.add('boardContainer');
