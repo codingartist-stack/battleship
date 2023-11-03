@@ -6,6 +6,9 @@ const player = require('./player');
 const header = document.createElement('header');
 const mainContainer = document.createElement('main');
 
+document.body.appendChild(header);
+document.body.appendChild(mainContainer);
+
 function Game() {
   //create two players
   let playerOne = player(false);
@@ -14,9 +17,64 @@ function Game() {
   let computer = player(true);
   let computerBoard = GameBoard();
 
-  //box for board
-  //render board
-  //header 2 for who's board it is
+  const renderBoard = (board) => {
+    const boardContainer = document.createElement('div');
+    const boardBox = document.createElement('div');
+    boardBox.classList.add('board');
+    const boardTitle = document.createElement('h2');
+
+    let boardArray = board.displayBoard();
+
+    boardArray.forEach((row) => {
+      row.forEach((item) => {
+        let square = document.createElement('div');
+        square.classList.add('boardSquare');
+
+        if (board == computerBoard) {
+          switch (item) {
+            case 'hit':
+              square.classList.add('hit');
+              break;
+            case 'miss':
+              square.classList.add('miss');
+              break;
+
+            default:
+              break;
+          }
+        } else {
+          switch (item) {
+            case 'SHIP':
+              square.classList.add('ship');
+              break;
+            case 'hit':
+              square.classList.add('hit');
+              break;
+            case 'miss':
+              square.classList.add('miss');
+              break;
+
+            default:
+              break;
+          }
+        }
+
+        boardBox.appendChild(square);
+      });
+    });
+
+    if (board == computerBoard) {
+      boardTitle.innerText = 'opponent board';
+    } else {
+      boardTitle.innerText = 'your board';
+    }
+
+    boardContainer.appendChild(boardBox);
+    boardContainer.appendChild(boardTitle);
+    mainContainer.appendChild(boardContainer);
+  };
+
+  renderBoard(playerOneBoard);
 
   let gameStillGoing = true;
 
@@ -55,4 +113,5 @@ function Game() {
   //how to have the players board?
 }
 
+Game();
 module.exports = Game;

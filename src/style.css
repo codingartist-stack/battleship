@@ -2,3 +2,30 @@
   color: teal;
   font-weight: bold;
 }
+
+/* BOARD */
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  width: max-content;
+}
+.boardSquare {
+  width: 20px;
+  aspect-ratio: 1;
+
+  border: solid lightskyblue 1px;
+}
+
+.ship {
+  background-color: lightgray;
+  border: solid grey 1px;
+}
+.miss {
+  background-color: rgb(170, 217, 246);
+  border: solid rgb(103, 173, 216) 1px;
+}
+.hit {
+  background-color: pink;
+  border: solid rgb(255, 113, 113) 1px;
+}
