@@ -9,17 +9,32 @@ const mainContainer = document.createElement('main');
 
 function Game() {
   //create two players
-  let person = player();
+  let playerOne = player();
   let computer = player();
+  let gameStillGoing = true;
 
+  const executeTurn = (player) => {
+    // do player choice, rendering stuff
+    gameStillGoing = !player.hasLost();
+  };
+
+  let currentPlayer = playerOne;
+
+  const takeTurn = () => {
+    // do stuff
+    executeTurn(currentPlayer);
+    if (currentPlayer === playerOne) {
+      currentPlayer = computer;
+    } else {
+      currentPlayer = playerOne;
+    }
+  };
   //game loop
 
+  while (gameStillGoing) {
+    takeTurn();
+  }
   //how to have the players board?
-  const renderBoard = () => {
-    const board = document.createElement('div');
-    board.classList.add('board');
-    mainContainer.appendChild(board);
-  };
 }
 
 module.exports = Game;

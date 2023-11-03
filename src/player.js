@@ -2,29 +2,19 @@ const GameBoard = require('./gameboard');
 
 function Player() {
   let playerAttacks = new Set();
-  let playerTurn = true;
+  const playerBoard = GameBoard();
 
-  const whosTurn = () => {
-    return playerTurn;
-  };
-
-  const switchTurn = () => {
-    if (playerTurn == true) {
-      playerTurn = false;
-      return playerTurn;
-    } else {
-      playerTurn = true;
-      return playerTurn;
-    }
-  };
-
-  const attack = (x, y, board = GameBoard()) => {
+  const attack = (x, y, board = playerBoard) => {
     if (playerAttacks.has(`${x}.${y}`)) {
       return;
     } else {
       playerAttacks.add(`${x}.${y}`);
       board.receiveAttack(x, y);
     }
+  };
+
+  const hasLost = () => {
+    return playerBoard.shipsSunk();
   };
 
   const randomAttack = (board = GameBoard()) => {
@@ -49,11 +39,10 @@ function Player() {
   };
 
   return {
-    whosTurn,
-    switchTurn,
     displayAttacks,
     randomAttack,
     attack,
+    hasLost,
   };
 }
 
