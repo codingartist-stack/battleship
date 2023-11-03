@@ -14,6 +14,10 @@ function Game() {
   let computer = player(true);
   let computerBoard = GameBoard();
 
+  //box for board
+  //render board
+  //header 2 for who's board it is
+
   let gameStillGoing = true;
 
   const executeTurn = (player, opponentBoard) => {
