@@ -118,17 +118,6 @@ function Game() {
   };
   initialize();
 
-  let gameStillGoing = true;
-
-  //   const executeTurn = (player, opponentBoard) => {
-  //     // do player choice, rendering stuff
-  //     const coordinate = player.getAttack();
-
-  //     opponentBoard.receiveAttack(coordinate.x, coordinate.y);
-
-  //     gameStillGoing = !opponentBoard.shipsSunk();
-  //   };
-
   let currentPlayer = playerOne;
   let opponentBoard = computerBoard;
 
@@ -138,7 +127,6 @@ function Game() {
       opponentBoard = playerOneBoard;
 
       let randomCoor = computer.randomAttack();
-      console.log(randomCoor);
 
       opponentBoard.receiveAttack(randomCoor.x, randomCoor.y);
       renderBoard(playerOneBoard, boardBox);
@@ -149,18 +137,6 @@ function Game() {
       opponentBoard = computerBoard;
     }
   };
-
-  //   const takeTurn = () => {
-  //     // do stuff
-  //     executeTurn(currentPlayer, opponentBoard);
-  //     swapTurn();
-  //   };
-  //game loop
-
-  //   while (gameStillGoing) {
-  //     takeTurn();
-  //   }
 }
 
 Game();
-// module.exports = Game;
