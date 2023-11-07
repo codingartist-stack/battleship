@@ -95,10 +95,6 @@ function Game() {
         j++;
         container.appendChild(square);
         square.addEventListener('click', (e) => {
-          console.log(
-            `${square.dataset.coordinateX}, ${square.dataset.coordinateY}`
-          );
-
           board.receiveAttack(
             square.dataset.coordinateX,
             square.dataset.coordinateY
