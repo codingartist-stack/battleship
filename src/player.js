@@ -28,6 +28,7 @@ function Player(isComputer = false) {
 
   return {
     getAttack,
+    randomAttack,
   };
 }
 

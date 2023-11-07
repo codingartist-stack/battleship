@@ -104,6 +104,7 @@ function Game() {
             square.dataset.coordinateY
           );
           renderBoard(board, container);
+          swapTurn();
         });
       });
       i++;
@@ -119,14 +120,14 @@ function Game() {
 
   let gameStillGoing = true;
 
-  const executeTurn = (player, opponentBoard) => {
-    // do player choice, rendering stuff
-    const coordinate = player.getAttack();
+  //   const executeTurn = (player, opponentBoard) => {
+  //     // do player choice, rendering stuff
+  //     const coordinate = player.getAttack();
 
-    opponentBoard.receiveAttack(coordinate.x, coordinate.y);
+  //     opponentBoard.receiveAttack(coordinate.x, coordinate.y);
 
-    gameStillGoing = !opponentBoard.shipsSunk();
-  };
+  //     gameStillGoing = !opponentBoard.shipsSunk();
+  //   };
 
   let currentPlayer = playerOne;
   let opponentBoard = computerBoard;
@@ -135,17 +136,25 @@ function Game() {
     if (currentPlayer === playerOne) {
       currentPlayer = computer;
       opponentBoard = playerOneBoard;
+
+      let randomCoor = computer.randomAttack();
+      console.log(randomCoor);
+
+      opponentBoard.receiveAttack(randomCoor.x, randomCoor.y);
+      renderBoard(playerOneBoard, boardBox);
+
+      swapTurn();
     } else {
       currentPlayer = playerOne;
       opponentBoard = computerBoard;
     }
   };
 
-  const takeTurn = () => {
-    // do stuff
-    executeTurn(currentPlayer, opponentBoard);
-    swapTurn();
-  };
+  //   const takeTurn = () => {
+  //     // do stuff
+  //     executeTurn(currentPlayer, opponentBoard);
+  //     swapTurn();
+  //   };
   //game loop
 
   //   while (gameStillGoing) {
