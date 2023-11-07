@@ -49,26 +49,25 @@ function Game() {
     let i = 0;
     let j = 0;
 
+    container.innerHTML = '';
+
     boardArray.forEach((row) => {
       row.forEach((item) => {
         let square = document.createElement('div');
         square.classList.add('boardSquare');
         square.dataset.coordinateX = `${i}`;
         square.dataset.coordinateY = `${j}`;
-
-        square.addEventListener('click', (e) => {
-          console.log(
-            `${square.dataset.coordinateX}, ${square.dataset.coordinateY}`
-          );
-        });
+        square.dataset.state = 'water';
 
         if (board == computerBoard) {
           switch (item) {
             case 'hit':
               square.classList.add('hit');
+              square.dataset.state = 'hitShip';
               break;
             case 'miss':
               square.classList.add('miss');
+              square.dataset.state = 'miss';
               break;
 
             default:
@@ -78,12 +77,15 @@ function Game() {
           switch (item) {
             case 'SHIP':
               square.classList.add('ship');
+              square.dataset.state = 'ship';
               break;
             case 'hit':
               square.classList.add('hit');
+              square.dataset.state = 'hitShip';
               break;
             case 'miss':
               square.classList.add('miss');
+              square.dataset.state = 'miss';
               break;
 
             default:
@@ -92,20 +94,34 @@ function Game() {
         }
         j++;
         container.appendChild(square);
+        square.addEventListener('click', (e) => {
+          console.log(
+            `${square.dataset.coordinateX}, ${square.dataset.coordinateY}`
+          );
+
+          board.receiveAttack(
+            square.dataset.coordinateX,
+            square.dataset.coordinateY
+          );
+          renderBoard(board, container);
+        });
       });
       i++;
       j = 0;
     });
   };
 
-  renderBoard(playerOneBoard, boardBox);
-  renderBoard(computerBoard, opponentBox);
+  const initialize = () => {
+    renderBoard(playerOneBoard, boardBox);
+    renderBoard(computerBoard, opponentBox);
+  };
+  initialize();
 
   let gameStillGoing = true;
 
   const executeTurn = (player, opponentBoard) => {
     // do player choice, rendering stuff
-    coordinate = player.getAttack();
+    const coordinate = player.getAttack();
 
     opponentBoard.receiveAttack(coordinate.x, coordinate.y);
 
@@ -132,11 +148,10 @@ function Game() {
   };
   //game loop
 
-  while (gameStillGoing) {
-    takeTurn();
-  }
-  //how to have the players board?
+  //   while (gameStillGoing) {
+  //     takeTurn();
+  //   }
 }
 
 Game();
-module.exports = Game;
+// module.exports = Game;

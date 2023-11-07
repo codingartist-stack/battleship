@@ -94,6 +94,7 @@ main {
   aspect-ratio: 1;
 
   border: solid lightskyblue 1px;
+  cursor: pointer;
 }
 
 .boardSquare:hover {
@@ -103,6 +104,11 @@ main {
 .ship {
   background-color: lightgray;
   border: solid grey 1px;
+}
+
+.miss,
+.hit {
+  cursor: not-allowed;
 }
 .miss {
   background-color: rgb(170, 217, 246);
